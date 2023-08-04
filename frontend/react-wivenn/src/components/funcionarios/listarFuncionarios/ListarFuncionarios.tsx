@@ -1,4 +1,7 @@
 import BarraPesquisa from "../../barraPesquisa/BarraPesquisa"
+import editar from "../../../assets/img/pen.png"
+import excluir from "../../../assets/img/delete.png"
+
 
 const posts = [
   {
@@ -47,8 +50,17 @@ export default function ListarFuncionarios() {
               <div className="group relative">
                
               </div>
-              <div className="relative mt-8 flex items-center gap-x-4">
-              <img src={post.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50 mb-10" />
+              <div className="relative mt-0 flex items-center gap-x-6">
+                <div className="center mb-5">
+
+              <img src={post.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50 mb-5" />
+
+              <div className="flex">
+               <img src={editar} alt="" className="h-4 w-4 mb-3 ml-0"></img>
+              
+               <img src={excluir} alt="" className="h-4 w-4 mb-10 ml-3"></img>
+              </div>
+              </div>
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900">
                     
