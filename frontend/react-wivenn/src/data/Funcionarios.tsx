@@ -4,7 +4,6 @@ export interface Funcionarios {
   lastName: string,
   email: string,
   phone: string,
-  imageUrl: string,
     department_id: {
     id: number,
     name: string,
@@ -17,8 +16,6 @@ export const funcionarios: Funcionarios[] = [
     lastName: 'Bueno',
     email: 'camille@gmail.com',
     phone: '11953236998',
-    imageUrl:
-    'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     department_id: {
       id: 1,
       name: 'T.I',
@@ -30,11 +27,76 @@ export const funcionarios: Funcionarios[] = [
     lastName: 'Ferreira',
     email: 'ana@gmail.com',
     phone: '11365987452',
-    imageUrl:
-    'https://th.bing.com/th/id/R.7772b7d05d24c939fcd40a05dd6091cf?rik=mxUQO6lMpUeFlw&riu=http%3a%2f%2ftusimagenesde.com%2fwp-content%2fuploads%2f2017%2f09%2ffoto-de-perfil-3.jpg&ehk=XqjYR4K5ptxQJoaPQ%2fpS2fa8JgnIkUME94hZTdsQyE0%3d&risl=&pid=ImgRaw&r=0',
-    department_id: {
+   department_id: {
       id: 1,
       name: 'RH',
       },
+  },
+  {
+    id: 3,
+    firstName: "Michael",
+    lastName: "Johnson",
+    email: "michael.johnson@example.com",
+    phone: "555-123-4567",
+    department_id: {
+      id: 103,
+      name: "Sales",
+    }
+  },
+  {
+    id: 4,
+    firstName: "Emily",
+    lastName: "Brown",
+    email: "emily.brown@example.com",
+    phone: "222-333-4444",
+    department_id: {
+      id: 104,
+      name: "Human Resources",
+    }
+  },
+  {
+    id: 5,
+    firstName: "David",
+    lastName: "Miller",
+    email: "david.miller@example.com",
+    phone: "777-888-9999",
+    department_id: {
+      id: 105,
+      name: "Finance",
+    }
+  },
+  {
+    id: 6,
+    firstName: "Sophia",
+    lastName: "Williams",
+    email: "sophia.williams@example.com",
+    phone: "444-555-6666",
+    department_id: {
+      id: 106,
+      name: "Operations",
+    }
+  },
+  {
+    id: 7,
+    firstName: "James",
+    lastName: "Taylor",
+    email: "james.taylor@example.com",
+    phone: "999-000-1111",
+    department_id: {
+      id: 107,
+      name: "Customer Support",
+    }
+  },
+  {
+    id: 8,
+    firstName: "Olivia",
+    lastName: "Anderson",
+    email: "olivia.anderson@example.com",
+    phone: "666-777-8888",
+    department_id: {
+      id: 108,
+      name: "Product Development",
+    }
   }
+            
 ]

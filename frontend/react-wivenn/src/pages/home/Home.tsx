@@ -1,6 +1,6 @@
-import FuncionariosForm from '../../components/funcionarios/FuncionariosForm';
-import DepartamentosForm from '../../components/departamentos/DepartamentosForm';
-import TarefasForm from '../../components/tarefas/TarefasForm';
+import FuncionariosForm from '../../components/funcionarios/cadastrarFuncionario/FuncionariosForm';
+import DepartamentosForm from '../../components/departamentos/cadastrarDepartamento/DepartamentosForm';
+import TarefasForm from '../../components/tarefas/cadastrarTarefas/TarefasForm';
 import ListarFuncionarios from '../../components/funcionarios/listarFuncionarios/ListarFuncionarios';
 
 function Home() {
