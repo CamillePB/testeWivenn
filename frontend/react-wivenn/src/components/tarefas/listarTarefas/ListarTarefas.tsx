@@ -1,54 +1,30 @@
 import BarraPesquisa from "../../barraPesquisa/BarraPesquisa"
+import { dados } from "../../../data/Dados"
+import { useState } from "react";
 
-const tarefa = [
-  {
-    id: 1,
-    title: 'Concluir relatório mensal ',
-    description: 'Concluir relatório mensal',
-    due_date: 'Ago 30, 2023',
-    assignee_id: {
-      id: 2,
-      fistName: 'Ana ',
-      lastName: 'Ferreira',
-      email: 'ana@gmail.com',
-      phone: '11365987452',
-      imageUrl:
-      'https://th.bing.com/th/id/R.7772b7d05d24c939fcd40a05dd6091cf?rik=mxUQO6lMpUeFlw&riu=http%3a%2f%2ftusimagenesde.com%2fwp-content%2fuploads%2f2017%2f09%2ffoto-de-perfil-3.jpg&ehk=XqjYR4K5ptxQJoaPQ%2fpS2fa8JgnIkUME94hZTdsQyE0%3d&risl=&pid=ImgRaw&r=0',
-      department_id: {
-        id: 1,
-        name: 'RH',
-        },
-      },
-  },
-  {
-    id: 2,
-    title: 'Enviar convites para reunião ',
-    description: 'Enviar convites para reunião',
-    due_date: 'Ago 25, 2023',
-    assignee_id: {
-    id: 2,
-    fistName: 'Ana ',
-    lastName: 'Ferreira',
-    email: 'ana@gmail.com',
-    phone: '11365987452',
-    imageUrl:
-    'https://th.bing.com/th/id/R.7772b7d05d24c939fcd40a05dd6091cf?rik=mxUQO6lMpUeFlw&riu=http%3a%2f%2ftusimagenesde.com%2fwp-content%2fuploads%2f2017%2f09%2ffoto-de-perfil-3.jpg&ehk=XqjYR4K5ptxQJoaPQ%2fpS2fa8JgnIkUME94hZTdsQyE0%3d&risl=&pid=ImgRaw&r=0',
-    department_id: {
-      id: 1,
-      name: 'RH',
-      },
-    }
-  },
-  // More posts...
-]
 
 export default function ListarTarefas() {
+  const [search, setSearch] = useState("");
+  const tarefa = dados.filter(dados => dados.title.toLocaleLowerCase().includes(search));
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Procurar Tarefa</h2>
-          <BarraPesquisa/>
+           {/* <BarraPesquisa/> */}
+           <div className="mb-3">
+            <div className="relative mb-4 flex w-full flex-wrap items-stretch">
+              <input
+                type="search"
+                className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-500 dark:focus:border-primary"
+                placeholder="Pesquisar Tarefa"
+                aria-label="Search"
+                aria-describedby="button-addon3"
+                value={search} onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          </div>
+        
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {tarefa.map((tarefa) => (
@@ -70,7 +46,7 @@ export default function ListarTarefas() {
                   </p>
                  
                  <p className="line-clamp-3 text-sm leading-6 text-gray-600">{tarefa.assignee_id.department_id.name}</p> 
-                 <p className="font-semibold text-gray-900">{tarefa.assignee_id.fistName}</p>
+                 <p className="font-semibold text-gray-900">{tarefa.assignee_id.firstName}</p>
                  <p className="font-semibold text-gray-900">{tarefa.assignee_id.lastName}</p>
 
                 </div>

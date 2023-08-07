@@ -1,82 +1,72 @@
 import BarraPesquisa from "../../barraPesquisa/BarraPesquisa"
 import editar from "../../../assets/img/pen.png"
 import excluir from "../../../assets/img/delete.png"
+import { funcionarios } from "../../../data/Funcionarios"
+import { useState } from "react";
 
-
-const posts = [
-  {
-    id: 1,
-    fistName: 'Camille ',
-    lastName: 'Bueno',
-    email: 'camille@gmail.com',
-    phone: '11953236998',
-    imageUrl:
-    'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    department_id: {
-      id: 1,
-      name: 'T.I',
-      },
-  },
-  {
-    id: 2,
-    fistName: 'Ana ',
-    lastName: 'Ferreira',
-    email: 'ana@gmail.com',
-    phone: '11365987452',
-    imageUrl:
-    'https://th.bing.com/th/id/R.7772b7d05d24c939fcd40a05dd6091cf?rik=mxUQO6lMpUeFlw&riu=http%3a%2f%2ftusimagenesde.com%2fwp-content%2fuploads%2f2017%2f09%2ffoto-de-perfil-3.jpg&ehk=XqjYR4K5ptxQJoaPQ%2fpS2fa8JgnIkUME94hZTdsQyE0%3d&risl=&pid=ImgRaw&r=0',
-    department_id: {
-      id: 1,
-      name: 'RH',
-      },
-  },
-  // More posts...
-]
 
 export default function ListarFuncionarios() {
+  const [search, setSearch] = useState("");
+  const funcionario = funcionarios.filter(funcionarios => funcionarios.firstName.toLocaleLowerCase().includes(search));
+
   return (
+
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Pesquisar</h2>
-          <BarraPesquisa/>
+
+          {/* <BarraPesquisa/> */}
+          <div className="mb-3">
+            <div className="relative mb-4 flex w-full flex-wrap items-stretch">
+              <input
+                type="search"
+                className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="button-addon3"
+                value={search} onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
+
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
+          {funcionario.map((funcionarios) => (
+            <article key={funcionarios.id} className="flex max-w-xl flex-col items-start justify-between">
               <div className="flex items-center gap-x-4 text-xs">
-               
+
               </div>
               <div className="group relative">
-               
+
               </div>
               <div className="relative mt-0 flex items-center gap-x-6">
                 <div className="center mb-5">
 
-              <img src={post.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50 mb-5" />
+                  <img src={funcionarios.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50 mb-5" />
 
-              <div className="flex">
-               <img src={editar} alt="" className="h-4 w-4 mb-3 ml-0"></img>
-              
-               <img src={excluir} alt="" className="h-4 w-4 mb-10 ml-3"></img>
-              </div>
-              </div>
+                  <div className="flex">
+                    <img src={editar} alt="" className="h-4 w-4 mb-3 ml-0"></img>
+
+                    <img src={excluir} alt="" className="h-4 w-4 mb-10 ml-3"></img>
+                  </div>
+                </div>
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-gray-900">
-                    
-                      <span className="absolute inset-0" />
-                      {post.fistName}
-                      {post.lastName}
-                    
+
+                    <span className="absolute inset-0" />
+                    {funcionarios.firstName}
+                    {funcionarios.lastName}
+
                   </p>
-                 
-                 <p className="line-clamp-3 text-sm leading-6 text-gray-600">{post.department_id.name}</p> 
-                 <a href="#">
-                    <p  className="font-semibold text-blue-800">ver mais</p>
-                    </a>
-                 <p className="font-semibold text-gray-900">{post.phone}</p>
-                 
-                  <p className="text-gray-600">{post.email}</p>
+
+                  <p className="line-clamp-3 text-sm leading-6 text-gray-600">{funcionarios.department_id.name}</p>
+                  <a href="#">
+                    <p className="font-semibold text-blue-800">ver mais</p>
+                  </a>
+                  <p className="font-semibold text-gray-900">{funcionarios.phone}</p>
+
+                  <p className="text-gray-600">{funcionarios.email}</p>
                 </div>
               </div>
             </article>
