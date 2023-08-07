@@ -2,13 +2,19 @@ import { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { departamentos } from '../../../data/Departamentos'
-import BotaoExcluir from '../../botoes/botaoExcluir/BotaoExcluir';
-import BotaoEditar from '../../botoes/botaoEditar/BotaoEditar';
-
+import BotaoExcluir from '../../../components/botoes/botaoExcluir/BotaoExcluir';
+import { useNavigate } from "react-router-dom";
+import editar from "../../../assets/img/pen.png";
 
 export default function ListarDepartamentos() {
   const [search, setSearch] = useState("");
   const departamento = departamentos.filter(departamentos => departamentos.name.toLocaleLowerCase().includes(search));
+
+  const navigate = useNavigate();
+
+  const editarDepartamento = () => {
+    navigate('/departamentosForm');
+  }
 
   return (
 
@@ -52,8 +58,12 @@ export default function ListarDepartamentos() {
                 >
 
                   <div className="relative flex gap-3">
+                       {/* Botão Editar */}
+                       <button type="submit" onClick={editarDepartamento} className="h-4 w-4 mt-0 mr-3">
+                      <img src={editar} alt="" ></img>
+                    </button>
                   <BotaoExcluir />
-                    <BotaoEditar />
+                    
                     <p className="block text-gray-900 mr-48">{departamento.name}</p>
 
                     

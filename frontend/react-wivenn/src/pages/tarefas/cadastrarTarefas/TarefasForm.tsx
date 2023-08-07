@@ -9,9 +9,9 @@ function TarefasForm() {
   const [assignee_id, setAssignee_id] = useState('');
 
 
-  
-  const validarForm = ()=>{
-    if(title.length === 0 || title.length === 0){
+
+  const validarForm = () => {
+    if (title.length === 0 || title.length === 0) {
       toast.warn('Prencha os campos', {
         position: "top-right",
         autoClose: 1000,
@@ -21,8 +21,8 @@ function TarefasForm() {
         draggable: true,
         progress: undefined,
         theme: "light",
-       });
-    }else{
+      });
+    } else {
       toast.success('Cadastrado com Sucesso', {
         position: "top-right",
         autoClose: 1000,
@@ -32,15 +32,15 @@ function TarefasForm() {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
-      
-        navigate('/listarTarefas');
+      });
+
+      navigate('/listarTarefas');
     }
   }
-  
+
   return (
-      <>
-       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-11 lg:px-8">
+    <>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-11 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Cadastrar Tarefa
@@ -55,10 +55,10 @@ function TarefasForm() {
               </label>
               <div className="mt-2">
                 <input
-                value={title}
-                onChange={(e) => {
-                setTitle(e.target.value)
-                }}  
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value)
+                  }}
                   id="nome"
                   name="nome"
                   required
@@ -85,10 +85,10 @@ function TarefasForm() {
               </label>
               <div className="mt-2">
                 <input
-                value={assignee_id}
-                onChange={(e) => {
-                setAssignee_id(e.target.value)
-                }}  
+                  value={assignee_id}
+                  onChange={(e) => {
+                    setAssignee_id(e.target.value)
+                  }}
                   id="nome"
                   name="nome"
                   required
@@ -109,21 +109,21 @@ function TarefasForm() {
                 />
               </div>
             </div>
-           
+
             <div>
-            <button
+              <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={validarForm}
-                >
-                   Enviar
-                 </button>
-                 <ToastContainer />
+              >
+                Enviar
+              </button>
+              <ToastContainer />
             </div>
           </form>
         </div>
       </div>
-      </>
+    </>
   )
 }
 

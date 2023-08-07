@@ -6,7 +6,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import ListarDepartamentos from '../../components/departamentos/listarDepartamentos/ListarDepartamentos'
+import ListarDepartamentos from '../../pages/departamentos/listarDepartamentos/ListarDepartamentos'
 import { departamentos } from '../../data/Departamentos'
 
 

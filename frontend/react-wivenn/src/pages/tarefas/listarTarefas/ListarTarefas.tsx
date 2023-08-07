@@ -1,12 +1,21 @@
 import { dados } from "../../../data/Tarefas"
 import { useState } from "react";
-import BotaoExcluir from "../../botoes/botaoExcluir/BotaoExcluir";
-import BotaoEditar from "../../botoes/botaoEditar/BotaoEditar";
+import BotaoExcluir from "../../../components/botoes/botaoExcluir/BotaoExcluir";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import editar from "../../../assets/img/pen.png";
+
 
 
 export default function ListarTarefas() {
   const [search, setSearch] = useState("");
   const tarefa = dados.filter(dados => dados.description.toLocaleLowerCase().includes(search));
+
+  const navigate = useNavigate();
+
+  const editarTarefa = () => {
+    navigate('/tarefasForm');
+  }
 
   return (
     <div className="bg-white py-24 sm:py-15">
@@ -37,10 +46,18 @@ export default function ListarTarefas() {
                   <div className="relative flex gap-0">
                     <p className="font-bold text-yellow-700 text-base mr-5 ">{tarefa.description}</p>
                     <div className="mt-1">
-                    <BotaoEditar />
-                    <BotaoExcluir />
+
+                      {/* Botão Editar */}
+                      <button type="submit" onClick={editarTarefa} className="h-4 w-4 mt-0 mr-3">
+                        <img src={editar} alt="" ></img>
+                      </button>
+
+                      <BotaoExcluir />
+                      <ToastContainer />
                     </div>
+
                   </div>
+
 
                   <p className="text-xs text-gray-600 ">{tarefa.due_date}</p>
 

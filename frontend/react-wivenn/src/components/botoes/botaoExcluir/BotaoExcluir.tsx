@@ -3,7 +3,7 @@ import excluir from "../../../assets/img/delete.png"
 
 
 export default function BotaoExcluir() {
-  const deletarFuncionario = () => {
+  const deletar = () => {
     toast.error('Excluido', {
       position: "top-right",
       autoClose: 1000,
@@ -15,9 +15,9 @@ export default function BotaoExcluir() {
       theme: "light",
     });
   }
-  return(
-      <button type="submit" onClick={deletarFuncionario} className="h-4 w-4 mb-3 ml-0">
+  return (
+    <button type="submit" onClick={deletar} className="h-4 w-4 mb-3 ml-0">
       <img src={excluir} alt="" ></img>
-      </button>
-)
+    </button>
+  )
 }

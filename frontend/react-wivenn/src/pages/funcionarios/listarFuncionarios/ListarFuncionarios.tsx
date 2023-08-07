@@ -1,13 +1,19 @@
 import { funcionarios } from "../../../data/Funcionarios"
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import BotaoExcluir from "../../botoes/botaoExcluir/BotaoExcluir";
-import BotaoEditar from "../../botoes/botaoEditar/BotaoEditar";
-
+import BotaoExcluir from "../../../components/botoes/botaoExcluir/BotaoExcluir";
+import { useNavigate } from "react-router-dom";
+import editar from "../../../assets/img/pen.png";
 
 export default function ListarFuncionarios() {
   const [search, setSearch] = useState("");
   const funcionario = funcionarios.filter(funcionarios => funcionarios.firstName.toLocaleLowerCase().includes(search));
+
+  const navigate = useNavigate();
+
+  const editarFuncionario = () => {
+    navigate('/funcionariosForm');
+  }
 
   return (
 
@@ -42,7 +48,10 @@ export default function ListarFuncionarios() {
               <div className="relative mt-0 flex items-center gap-x-6">
                 <div className="center mb-0">
                   <div className="group flex ml-3">
-                    <BotaoEditar />
+                    {/* Botão Editar */}
+                    <button type="submit" onClick={editarFuncionario} className="h-4 w-4 mt-0 mr-3">
+                      <img src={editar} alt="" ></img>
+                    </button>
                     <BotaoExcluir />
                     <ToastContainer />
                   </div>
@@ -63,7 +72,7 @@ export default function ListarFuncionarios() {
                   </div>
 
                   <p className="line-clamp-3 text-sm leading-6 text-gray-600">{funcionarios.department_id.name}</p>
-                
+
                   <p className="font-semibold text-gray-900">{funcionarios.phone}</p>
 
                   <p className="text-gray-600">{funcionarios.email}</p>
